@@ -2,6 +2,10 @@ import networkx as nx
 import copy as cp
 
 def k_shortest_paths(G, source, target, k = 1, weight = 'weight'):
+    # G is a networkx graph.
+    # source and target are the labels for the source and target of the path.
+    # k is the amount of desired paths.
+    # weight = 'weight' assumes a weighed graph. If this is undesired, use weight = None.
     
     A = [nx.dijkstra_path(G, source, target, weight = 'weight')]
     A_len = [sum([G[A[0][l]][A[0][l + 1]]['weight'] for l in range(len(A[0]) - 1)])]
